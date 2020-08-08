@@ -8,7 +8,7 @@
     tools:context="com.example.hackinstead.Enter_values">
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/ride_type"
         android:layout_width="333dp"
         android:layout_height="58dp"
         android:background="#FFFFFF"
@@ -16,120 +16,211 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.163" />
 
-    <EditText
-        android:id="@+id/editTextNumberDecimal"
-        android:layout_width="167dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ride_type"
+        app:srcCompat="@drawable/excitement" />
 
-    <EditText
-        android:id="@+id/editTextNumberDecimal2"
-        android:layout_width="167dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/nausea" />
 
-    <EditText
-        android:id="@+id/editTextNumberDecimal3"
-        android:layout_width="167dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/rct2"
+        android:text="Back"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/submit_button"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/same_ride" />
+
+    <CheckBox
+        android:id="@+id/same_ride"
+        android:layout_width="298dp"
+        android:layout_height="51dp"
+        android:fontFamily="@font/rct2"
+        android:scaleX="1.4"
+        android:scaleY="1.4"
+        android:text="Same Ride Type in Park?"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entry_fee"
+        app:layout_constraintVertical_bias="0.074" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="153dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:id="@+id/textView3"
+        android:paddingRight="3dp"
+        android:paddingLeft="3dp"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rct2"
+        android:background="@drawable/border_value"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:text="Nausea:"
+        android:textAlignment="textEnd"
+        android:textColor="#000000"
+        android:textSize="38dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="153dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:layout_width="160dp"
+        android:background="@drawable/border_value"
+        android:layout_height="45dp"
+        android:layout_marginStart="108dp"
+        android:paddingRight="3dp"
+        android:paddingLeft="3dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rct2"
+        android:gravity="end"
+        android:paddingTop="10dp"
+        android:text="Intensity:"
+        android:textAlignment="textEnd"
+        android:textColor="#000000"
+        android:textSize="38dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="153dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:id="@+id/textView"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/border_value"
+        android:fontFamily="@font/rct2"
+        android:gravity="end"
+        android:paddingLeft="3dp"
+        android:paddingTop="10dp"
+        android:paddingRight="3dp"
+        android:text="Excitement:"
+        android:textColor="#000000"
+        android:textSize="38dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/ride_type" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="298dp"
-        android:layout_height="51dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="324dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/rct2"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:text="Select Ride Type:"
+        android:textColor="#000000"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.469" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="298dp"
-        android:layout_height="51dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="139dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:text="Button"
+        android:id="@+id/submit_button"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/rct2"
+        android:text="Submit"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintTop_toBottomOf="@+id/same_ride" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="139dp"
-        android:layout_height="46dp"
+    <EditText
+        android:id="@+id/nausea"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
         android:layout_marginTop="16dp"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.797"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/intensity" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/intensity" />
+
+    <CheckBox
+        android:id="@+id/entry_fee"
+        android:layout_width="298dp"
+        android:layout_height="51dp"
+        android:fontFamily="@font/rct2"
+        android:scaleX="1.4"
+        android:scaleY="1.4"
+        android:text="Are you Charging Entry Fees?"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ride_type"
+        app:layout_constraintVertical_bias="0.453" />
+
+    <EditText
+        android:id="@+id/intensity"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/excitement" />
+
+    <EditText
+        android:id="@+id/excitement"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/ride_type" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
