@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,12 +13,15 @@ import android.widget.Toast;
 
 import com.example.hackinstead.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Results extends AppCompatActivity {
 
     Button save,home;
     TextView[] entries = new TextView[10];
 
-    int excitement, intensity, nausea;
+    List<Integer[]> listOfModifiers = new ArrayList<Integer[]>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +32,33 @@ public class Results extends AppCompatActivity {
         databaseAccess.open();
 
         String rideType = Enter_values.ride.getType().toLowerCase().replace(" ", "_");
+        Log.i("INFO", rideType);
 
-        Cursor data = databaseAccess.getRideValuesfromType(rideType);
+        Cursor data = databaseAccess.getRideValuesFromType(rideType);
         if (data.getCount() == 0) {
             Toast.makeText(getApplicationContext(),"Database is empty", Toast.LENGTH_SHORT).show();
         } else {
-            excitement = data.getInt(1);
-            intensity = data.getInt(2);
-            nausea = data.getInt(3);
+            while(data.moveToNext()) {
+                listOfModifiers.add(new Integer[] {
+                        Integer.parseInt(data.getString(0)),
+                        Integer.parseInt(data.getString(1)),
+                        Integer.parseInt(data.getString(2))
+                });
+            }
         }
 
-        int rideValue = Calculation.getRideValue(Enter_values.ride.getExcitement(), excitement, Enter_values.ride.getIntensity(), intensity, Enter_values.ride.getNausea(), nausea);
+        int rideValue = Calculation.getRideValue(Enter_values.ride.getExcitement(), listOfModifiers.get(0)[0], Enter_values.ride.getIntensity(), listOfModifiers.get(0)[1], Enter_values.ride.getNausea(), listOfModifiers.get(0)[2]);
+        Log.i("rideValue", String.valueOf(rideValue));
         int finalRideValue = Calculation.getAdmissionValue(Enter_values.ride.getEntryFee(), Calculation.getExistingRideTypeValue(Enter_values.ride.getSameRideType(), rideValue));
+        Log.i("finalRideValue", String.valueOf(finalRideValue));
         int[] ridePrices = Calculation.getAgeValue(finalRideValue);
+
+        double[] updatedRidePrices = new double[ridePrices.length];
+
+        for(int i = 0; i < ridePrices.length; i++) {
+            updatedRidePrices[i] = Calculation.getMaxPrice(ridePrices[i]);
+            Log.i("updatedRidePrices", String.valueOf(updatedRidePrices[i]));
+        }
 
         save = findViewById(R.id.button);
         home = findViewById(R.id.button3);
@@ -55,6 +73,11 @@ public class Results extends AppCompatActivity {
         entries[7] = findViewById(R.id.entry7);
         entries[8] = findViewById(R.id.entry8);
         entries[9] = findViewById(R.id.entry9);
+
+        for(int i = 0; i < entries.length; i++) {
+            Log.i("INFO", String.valueOf(updatedRidePrices[i]));
+            entries[i].setText(String.valueOf(updatedRidePrices[i]));
+        }
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,7 @@
 package com.example.hackinstead;
 
+import java.math.BigDecimal;
+
 public class Calculation {
     public static int getRideValue(double excitement, int excitementModifier, double intensity, int intensityModifier, double nausea, int nauseaModifier) {
         int excitementValue = (int)(excitement * 100 * excitementModifier * 32) / 32768;
@@ -38,6 +40,6 @@ public class Calculation {
     }
 
     public static double getMaxPrice(int rideValue) {
-        return ((rideValue / 10) * 2) - 0.1;
+        return BigDecimal.valueOf(((double)rideValue / 10) * 2).setScale(3).doubleValue();
     }
 }

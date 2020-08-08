@@ -46,9 +46,9 @@ public class DatabaseAccess {
         return data;
     }
 
-    public Cursor getRideValuesfromType(String type) {
+    public Cursor getRideValuesFromType(String type) {
         open();
-        Cursor data = db.rawQuery("SELECT * FROM RIDES WHERE RIDE_NAME = ?", new String[]{type});
+        Cursor data = db.rawQuery("SELECT EXCITEMENT, INTENSITY, NAUSEA FROM RIDES WHERE RIDE_NAME = ?", new String[]{type});
         return data;
     }
 
