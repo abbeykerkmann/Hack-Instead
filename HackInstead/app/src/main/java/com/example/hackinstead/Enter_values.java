@@ -78,8 +78,8 @@ public class Enter_values extends AppCompatActivity {
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, rideNames);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.layout.custom_font, rideNames);
+        adapter.setDropDownViewResource(R.layout.custom_font);
         rideType.setAdapter(adapter);
 
         back.setOnClickListener(new View.OnClickListener() {
