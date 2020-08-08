@@ -11,12 +11,13 @@
         android:id="@+id/calculator_button"
         android:layout_width="350dp"
         android:layout_height="100dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/custom_button"
         android:text="Calculator"
         android:textColor="#000505"
         android:textSize="50px"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,10 +36,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="386dp"
-        android:layout_height="534dp"
-        android:layout_marginTop="292dp"
+        android:layout_width="330dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="240dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/orct2_logo" />
