@@ -38,6 +38,13 @@ public class Calculation {
             return rideValue;
     }
 
+    public static int getAdmissionValue(boolean admission, int rideValue) {
+        if(admission)
+            return (int)(rideValue * 0.25);
+        else
+            return rideValue;
+    }
+
     public static double getMaxPrice(int rideValue) {
         return ((rideValue / 10) * 2) - 0.1;
     }
