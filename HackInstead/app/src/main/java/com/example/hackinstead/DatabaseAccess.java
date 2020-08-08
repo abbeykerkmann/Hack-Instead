@@ -34,4 +34,9 @@ public class DatabaseAccess {
             this.db.close();
         }
     }
+    public Cursor getRides() {
+        open();
+        Cursor data = db.rawQuery("SELECT * FROM RIDES ORDER BY RIDE_NAME", new String[]{});
+        return data;
+    }
 }
