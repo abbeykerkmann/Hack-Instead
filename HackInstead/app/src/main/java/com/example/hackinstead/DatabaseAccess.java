@@ -45,4 +45,28 @@ public class DatabaseAccess {
         Cursor data = db.rawQuery("SELECT RIDE_NAME FROM RIDES ORDER BY RIDE_NAME", new String[]{});
         return data;
     }
+
+    public Cursor getRideValuesfromType(String type) {
+        open();
+        Cursor data = db.rawQuery("SELECT * FROM RIDES WHERE RIDE_NAME = ?", new String[]{type});
+        return data;
+    }
+
+    public boolean saveRideData(String name, String type, double excitement, double intensity, double nausea, boolean sameRideType, boolean entryFee) {
+        open();
+        ContentValues content = new ContentValues();
+        content.put("NAME", name);
+        content.put("TYPE", type);
+        content.put("EXCITEMENT", excitement);
+        content.put("INTENSITY", intensity);
+        content.put("NAUSEA", nausea);
+        content.put("FIRST_RIDE_TYPE", sameRideType);
+        content.put("ENTRY_FEE", entryFee);
+        long result = db.insert("SAVES", null, content);
+        close();
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
 }
