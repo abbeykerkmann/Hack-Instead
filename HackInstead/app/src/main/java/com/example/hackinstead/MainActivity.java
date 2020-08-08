@@ -2,6 +2,7 @@ package com.example.hackinstead;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +13,9 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button close_button,save,calculator;
+    Button close_button, save, calculator;
     ImageButton question_mark;
-    LinearLayout mycontent,overbox;
+    LinearLayout mycontent, overbox;
 
 
     @Override
@@ -33,6 +34,20 @@ public class MainActivity extends AppCompatActivity {
 
         mycontent.setAlpha(0);
         overbox.setAlpha(0);
+
+        calculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToEnterValues();
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToHistory();
+            }
+        });
 
         question_mark.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,5 +68,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void goToEnterValues() {
+        Intent intent = new Intent(this, Enter_values.class);
+        startActivity(intent);
+    }
+
+    private void goToHistory() {
+        Intent intent = new Intent(this, History.class);
+        startActivity(intent);
     }
 }
