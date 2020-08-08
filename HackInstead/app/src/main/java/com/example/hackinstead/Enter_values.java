@@ -23,11 +23,14 @@ public class Enter_values extends AppCompatActivity {
     public String rideTypeValue = "";
     public double excitementValue = 0, intensityValue = 0, nauseaValue = 0;
     public boolean isSameRide = false, isEntryFee = false;
+
     List<String> listOfRides = new ArrayList<>();
+
     Button back, submit;
     CheckBox sameRide, entryFee;
     EditText excitement, intensity, nausea;
     Spinner rideType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +47,10 @@ public class Enter_values extends AppCompatActivity {
         excitement = findViewById(R.id.excitement);
         intensity = findViewById(R.id.intensity);
         nausea = findViewById(R.id.nausea);
+
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.open();
+
         Cursor data = databaseAccess.getRides();
         if (data.getCount() == 0) {
             Toast.makeText(getApplicationContext(),"Database is empty", Toast.LENGTH_SHORT).show();
@@ -55,6 +60,7 @@ public class Enter_values extends AppCompatActivity {
                 databaseAccess.close();
             }
         }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, listOfRides);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -82,10 +88,30 @@ public class Enter_values extends AppCompatActivity {
     }
 
     private void goToResults() {
-        rideTypeValue = rideType.getSelectedItem().toString();
-        excitementValue = Double.parseDouble(excitement.getText().toString());
-        intensityValue = Double.parseDouble(intensity.getText().toString());
-        nauseaValue = Double.parseDouble(nausea.getText().toString());
+        if(rideType.getSelectedItem() == null) {
+            Toast.makeText(getApplicationContext(), "Ride type cannot be empty!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else
+            rideTypeValue = rideType.getSelectedItem().toString();
+        if(excitement.getText().toString() == "") {
+            Toast.makeText(getApplicationContext(), "Excitement cannot be empty!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else
+            excitementValue = Double.parseDouble(excitement.getText().toString());
+        if(intensity.getText() == null) {
+            Toast.makeText(getApplicationContext(), "Intensity cannot be empty!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else
+            intensityValue = Double.parseDouble(intensity.getText().toString());
+        if(nausea.getText() == null) {
+            Toast.makeText(getApplicationContext(), "Nausea cannot be empty!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else
+            nauseaValue = Double.parseDouble(nausea.getText().toString());
         if(sameRide.isChecked())
             isSameRide = true;
         if(entryFee.isChecked())
