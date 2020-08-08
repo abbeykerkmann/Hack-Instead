@@ -28,7 +28,7 @@ public class Enter_values extends AppCompatActivity {
     private double excitementValue = 0, intensityValue = 0, nauseaValue = 0;
     private boolean isSameRide = false, isEntryFee = false;
 
-    public Rides ride;
+    public static Rides ride;
 
     List<String> rideNames = new ArrayList<>();
 
@@ -54,6 +54,8 @@ public class Enter_values extends AppCompatActivity {
         intensity = findViewById(R.id.intensity);
         nausea = findViewById(R.id.nausea);
 
+        rideNames.add("Please Select a Ride Type");
+
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.open();
 
@@ -67,7 +69,7 @@ public class Enter_values extends AppCompatActivity {
             }
         }
 
-        for(int i = 0; i < rideNames.size(); i++) {
+        for(int i = 1; i < rideNames.size(); i++) {
             String current = rideNames.get(i);
             String[] updated = current.split("_");
             for(int j = 0; j < updated.length; j++)
@@ -90,7 +92,6 @@ public class Enter_values extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 goToResults();
             }
         });
@@ -102,7 +103,7 @@ public class Enter_values extends AppCompatActivity {
     }
 
     private void goToResults() {
-        if(rideType.getSelectedItem() == null) {
+        if(rideType.getSelectedItem().equals("Please Select a Ride Type")) {
             Toast.makeText(getApplicationContext(), "Ride type cannot be empty!", Toast.LENGTH_SHORT).show();
             return;
         }
