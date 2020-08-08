@@ -20,9 +20,11 @@ import java.util.List;
 
 public class Enter_values extends AppCompatActivity {
 
-    public String rideTypeValue = "";
-    public double excitementValue = 0, intensityValue = 0, nauseaValue = 0;
-    public boolean isSameRide = false, isEntryFee = false;
+    private String rideTypeValue = "";
+    private double excitementValue = 0, intensityValue = 0, nauseaValue = 0;
+    private boolean isSameRide = false, isEntryFee = false;
+
+    public Rides ride;
 
     List<String> listOfRides = new ArrayList<>();
 
@@ -116,6 +118,9 @@ public class Enter_values extends AppCompatActivity {
             isSameRide = true;
         if(entryFee.isChecked())
             isEntryFee = true;
+
+        ride = new Rides(rideTypeValue, excitementValue, intensityValue, nauseaValue, isSameRide, isEntryFee);
+
         Intent intent = new Intent(this, Results.class);
         startActivity(intent);
     }

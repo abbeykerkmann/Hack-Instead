@@ -1,33 +1,42 @@
 package com.example.hackinstead;
 
 public class Rides {
-    String ridename;
-    Integer ride_excitement;
-    Integer ride_intensity;
-    Integer ride_nausea;
+    String type;
+    double excitement, intensity, nausea;
+    boolean sameRideType, entryFee;
 
-    public String getRidename() {return ridename; }
+    public String getType() {return type; }
 
-    public void setRidename(String ridename) { this.ridename = ridename; }
+    public void setType(String type) { this.type = type; }
 
-    public Integer getRideExcitement(){ return ride_excitement; }
+    public double getExcitement(){ return excitement; }
 
-    public void setExcitement(Integer ride_excitement) { this.ride_excitement = ride_excitement; }
+    public void setExcitement(double excitement) { this.excitement = excitement; }
 
-    public Integer getRideIntensity(){ return ride_intensity; }
+    public double getIntensity(){ return intensity; }
 
-    public void setIntensity(Integer ride_intensity) { this.ride_intensity = ride_intensity; }
+    public void setIntensity(double intensity) { this.intensity = intensity; }
 
-    public Integer getRideNausea(){ return ride_nausea; }
+    public double getNausea(){ return nausea; }
 
-    public void setNausea(Integer ride_nausea) { this.ride_nausea = ride_nausea; }
+    public void setNausea(double nausea) { this.nausea = nausea; }
+
+    public boolean getSameRideType(){ return sameRideType; }
+
+    public void setSameRideType(boolean sameRideType) { this.sameRideType = sameRideType; }
+
+    public boolean getEntryFee(){ return entryFee; }
+
+    public void setEntryFee(boolean entryFee) { this.entryFee = entryFee; }
 
 
-    public Rides(String ridename, Integer ride_excitement, Integer ride_intensity, Integer ride_nausea){
-        this.ridename = ridename;
-        this.ride_excitement = ride_excitement;
-        this.ride_intensity = ride_intensity;
-        this.ride_nausea = ride_nausea;
+    public Rides(String type, double excitement, double intensity, double nausea, boolean sameRideType, boolean entryFee){
+        this.type = type;
+        this.excitement = excitement;
+        this.intensity = intensity;
+        this.nausea = nausea;
+        this.sameRideType = sameRideType;
+        this.entryFee = entryFee;
     }
 
 }
