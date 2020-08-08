@@ -94,19 +94,19 @@ public class Enter_values extends AppCompatActivity {
         }
         else
             rideTypeValue = rideType.getSelectedItem().toString();
-        if(excitement.getText().toString() == "") {
+        if(excitement.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Excitement cannot be empty!", Toast.LENGTH_SHORT).show();
             return;
         }
         else
             excitementValue = Double.parseDouble(excitement.getText().toString());
-        if(intensity.getText() == null) {
+        if(intensity.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Intensity cannot be empty!", Toast.LENGTH_SHORT).show();
             return;
         }
         else
             intensityValue = Double.parseDouble(intensity.getText().toString());
-        if(nausea.getText() == null) {
+        if(nausea.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Nausea cannot be empty!", Toast.LENGTH_SHORT).show();
             return;
         }
