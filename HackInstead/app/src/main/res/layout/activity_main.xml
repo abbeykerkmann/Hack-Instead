@@ -11,8 +11,11 @@
         android:id="@+id/calculator_button"
         android:layout_width="250dp"
         android:layout_height="85dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="204dp"
+        android:background="@drawable/custom_button"
         android:text="Calculator"
+        android:textColor="#000505"
+        android:textSize="50px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +26,9 @@
         android:layout_height="85dp"
         android:layout_marginTop="28dp"
         android:text="Saved Rides"
+        android:textSize="50px"
+        android:textColor="#000505"
+        android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculator_button" />
@@ -32,6 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ORCT2 Calculator"
+        android:textSize="50dp"
+        android:textColor="#000505"
         app:layout_constraintBottom_toTopOf="@+id/calculator_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +47,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="238dp"
-        android:layout_height="398dp"
+        android:layout_width="318dp"
+        android:layout_height="467dp"
         android:layout_marginTop="396dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
