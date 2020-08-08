@@ -7,4 +7,27 @@
     android:background="@drawable/background_orct"
     tools:context="com.example.hackinstead.History">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="326dp"
+        android:layout_height="504dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_value"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.388" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="207dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/rct2"
+        android:text="Back"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
