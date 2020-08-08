@@ -11,9 +11,10 @@
         android:id="@+id/ride_type"
         android:layout_width="333dp"
         android:layout_height="58dp"
-        android:background="@drawable/border_value"
+        android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.163" />

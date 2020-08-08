@@ -9,16 +9,16 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:fontFamily="@font/rct2"
-        android:textSize="40dp"
-        android:textColor="#000000"
-        android:gravity="center"
         android:layout_width="151dp"
         android:layout_height="50dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/rct2"
+        android:gravity="center"
         android:text="Ride Age"
+        android:textColor="#000000"
+        android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/entry1" />
 
     <TextView
-        android:id="@+id/entry4"
+        android:id="@+id/entry5"
         android:layout_width="151dp"
         android:layout_height="41dp"
         android:layout_marginStart="12dp"
@@ -54,7 +54,7 @@
         android:text="TextView"
         android:textSize="30dp"
         app:layout_constraintStart_toEndOf="@+id/textView35"
-        app:layout_constraintTop_toBottomOf="@+id/entry3" />
+        app:layout_constraintTop_toBottomOf="@+id/entry4" />
 
     <TextView
         android:id="@+id/textView36"
@@ -100,7 +100,7 @@
         android:layout_height="41dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/border_value"
         android:fontFamily="@font/rct2"
         android:gravity="center"
@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/entry5"
+        android:id="@+id/entry6"
         android:layout_width="151dp"
         android:layout_height="41dp"
         android:layout_marginStart="12dp"
@@ -126,7 +126,7 @@
         android:text="TextView"
         android:textSize="30dp"
         app:layout_constraintStart_toEndOf="@+id/textView36"
-        app:layout_constraintTop_toBottomOf="@+id/entry4" />
+        app:layout_constraintTop_toBottomOf="@+id/entry5" />
 
     <TextView
         android:id="@+id/textView33"
@@ -160,6 +160,23 @@
         android:text="Less than 88 Months"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="151dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border_value"
+        android:fontFamily="@font/rct2"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="Less than 64 Months"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
     <TextView
@@ -185,7 +202,7 @@
         android:layout_height="41dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/border_value"
         android:fontFamily="@font/rct2"
         android:gravity="center"
@@ -267,23 +284,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
     <TextView
-        android:id="@+id/entry6"
-        android:layout_width="151dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/border_value"
-        android:fontFamily="@font/rct2"
-        android:gravity="center"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
-        android:text="TextView"
-        android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/textView37"
-        app:layout_constraintTop_toBottomOf="@+id/entry5" />
-
-    <TextView
         android:id="@+id/entry7"
         android:layout_width="151dp"
         android:layout_height="41dp"
@@ -297,7 +297,7 @@
         android:paddingBottom="3dp"
         android:text="TextView"
         android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/textView38"
+        app:layout_constraintStart_toEndOf="@+id/textView37"
         app:layout_constraintTop_toBottomOf="@+id/entry6" />
 
     <TextView
@@ -314,8 +314,42 @@
         android:paddingBottom="3dp"
         android:text="TextView"
         android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintStart_toEndOf="@+id/textView38"
         app:layout_constraintTop_toBottomOf="@+id/entry7" />
+
+    <TextView
+        android:id="@+id/entry9"
+        android:layout_width="151dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border_value"
+        android:fontFamily="@font/rct2"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="TextView"
+        android:textSize="30dp"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/entry8" />
+
+    <TextView
+        android:id="@+id/entry4"
+        android:layout_width="151dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border_value"
+        android:fontFamily="@font/rct2"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="TextView"
+        android:textSize="30dp"
+        app:layout_constraintStart_toEndOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/entry3" />
 
     <TextView
         android:id="@+id/entry3"
@@ -338,14 +372,14 @@
         android:id="@+id/textView31"
         android:layout_width="151dp"
         android:layout_height="50dp"
-        android:fontFamily="@font/rct2"
-        android:textSize="40dp"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:fontFamily="@font/rct2"
+        android:gravity="center"
         android:text="Price"
+        android:textColor="#000000"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -354,33 +388,33 @@
     <Button
         android:id="@+id/button"
         android:layout_width="151dp"
-        android:layout_height="80dp"
+        android:layout_height="40dp"
         android:layout_marginStart="48dp"
-        android:fontFamily="@font/rct2"
-        android:textSize="50dp"
-        android:background="@drawable/custom_button"
-        android:gravity="center"
         android:layout_marginLeft="48dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/rct2"
+        android:gravity="center"
         android:text="Save"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView39"
-        app:layout_constraintVertical_bias="0.188" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="151dp"
-        android:layout_height="80dp"
-        android:fontFamily="@font/rct2"
-        android:textSize="50dp"
-        android:gravity="center"
+        android:layout_height="40dp"
         android:background="@drawable/custom_button"
+        android:fontFamily="@font/rct2"
+        android:gravity="center"
         android:text="Home"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/entry8"
-        app:layout_constraintVertical_bias="0.188" />
+        app:layout_constraintTop_toBottomOf="@+id/entry9"
+        app:layout_constraintVertical_bias="0.375" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
