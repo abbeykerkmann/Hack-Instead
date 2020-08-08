@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_orct"
     tools:context=".MainActivity">
-
     <Button
         android:id="@+id/calculator_button"
         android:layout_width="350dp"
@@ -15,7 +14,8 @@
         android:background="@drawable/custom_button"
         android:text="Calculator"
         android:textColor="#000505"
-        android:textSize="50px"
+        android:fontFamily="@font/press_start_2p"
+        android:textSize="70px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,8 +28,9 @@
         android:layout_marginTop="36dp"
         android:background="@drawable/custom_button"
         android:text="Saved Rides"
+        android:fontFamily="@font/press_start_2p"
         android:textColor="#000505"
-        android:textSize="50px"
+        android:textSize="70px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calculator_button" />
