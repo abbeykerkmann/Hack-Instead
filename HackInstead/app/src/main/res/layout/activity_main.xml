@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/Background_ORCT"
+    android:background="@drawable/background_ORCT"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/calculator_button"
-        android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="204dp"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="96dp"
         android:background="@drawable/custom_button"
         android:text="Calculator"
         android:textColor="#000505"
@@ -22,38 +22,25 @@
 
     <Button
         android:id="@+id/save_rides_button"
-        android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="28dp"
-        android:text="Saved Rides"
-        android:textSize="50px"
-        android:textColor="#000505"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/custom_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calculator_button" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ORCT2 Calculator"
-        android:textSize="50dp"
+        android:text="Saved Rides"
         android:textColor="#000505"
-        app:layout_constraintBottom_toTopOf="@+id/calculator_button"
+        android:textSize="50px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/calculator_button" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="318dp"
-        android:layout_height="467dp"
-        android:layout_marginTop="396dp"
+        android:layout_width="386dp"
+        android:layout_height="534dp"
+        android:layout_marginTop="292dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ORCT2_Logo" />
+        app:srcCompat="@drawable/oRCT2_Logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
