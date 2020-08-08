@@ -1,11 +1,14 @@
 package com.example.hackinstead;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.media.Rating;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +19,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Enter_values extends AppCompatActivity {
@@ -26,7 +30,7 @@ public class Enter_values extends AppCompatActivity {
 
     public Rides ride;
 
-    List<String> listOfRides = new ArrayList<>();
+    List<String> rideNames = new ArrayList<>();
 
     Button back, submit;
     CheckBox sameRide, entryFee;
@@ -53,18 +57,26 @@ public class Enter_values extends AppCompatActivity {
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.open();
 
-        Cursor data = databaseAccess.getRides();
+        Cursor data = databaseAccess.getRideNames();
         if (data.getCount() == 0) {
             Toast.makeText(getApplicationContext(),"Database is empty", Toast.LENGTH_SHORT).show();
         } else {
             while (data.moveToNext()) {
-                listOfRides.add(data.getString(0));
+                rideNames.add(data.getString(0));
                 databaseAccess.close();
             }
         }
 
+        for(int i = 0; i < rideNames.size(); i++) {
+            String current = rideNames.get(i);
+            String[] updated = current.split("_");
+            for(int j = 0; j < updated.length; j++)
+                updated[j] = updated[j].substring(0, 1).toUpperCase() + updated[j].substring(1);
+            rideNames.set(i, TextUtils.join(" ", updated));
+        }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, listOfRides);
+                android.R.layout.simple_list_item_1, rideNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rideType.setAdapter(adapter);
 

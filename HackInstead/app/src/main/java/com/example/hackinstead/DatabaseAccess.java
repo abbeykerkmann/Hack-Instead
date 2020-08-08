@@ -39,4 +39,10 @@ public class DatabaseAccess {
         Cursor data = db.rawQuery("SELECT * FROM RIDES ORDER BY RIDE_NAME", new String[]{});
         return data;
     }
+
+    public Cursor getRideNames() {
+        open();
+        Cursor data = db.rawQuery("SELECT RIDE_NAME FROM RIDES ORDER BY RIDE_NAME", new String[]{});
+        return data;
+    }
 }
