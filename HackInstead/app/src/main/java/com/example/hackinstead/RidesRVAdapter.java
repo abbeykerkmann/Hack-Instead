@@ -3,44 +3,65 @@ package com.example.hackinstead;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RidesRVAdapter extends RecyclerView.Adapter<RidesRVAdapter.CustomViewHolder> {
+public class RidesRVAdapter extends RecyclerView.Adapter<RidesRVAdapter.ViewHolder> {
     private List<String> ridesList;
-    private AdapterView.OnItemClickListener editListener;
+    private LayoutInflater mInflater;
+    private ItemClickListener mClickListener;
 
-    public interface OnItemClickListener{
-        void onItemClick(int position);
+    public RidesRVAdapter(Context context, List<String> ridesList) {
+        this.mInflater = LayoutInflater.from(context);
+        this.ridesList = ridesList;
     }
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder {
-        public TextView ride_name;
+    public interface ItemClickListener {
+        void onItemClick(View view, int position);
+    }
 
-        public CustomViewHolder(View view, final OnItemClickListener listener){
-            super(view);
-            ride_name = (TextView) view.findViewById(R.id.ride_name_history);
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView rideName;
+
+        ViewHolder(View itemView) {
+            super(itemView);
+            rideName = itemView.findViewById(R.id.ride_name_history);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
         }
     }
-    public RidesRVAdapter(List<String> ride) {this.ridesList = ride; }
-    @Override
-    public RidesRVAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_holder, parent, false);
-        return new CustomViewHolder(itemView, (OnItemClickListener) this.editListener);
+
+    String getItem(int id) {
+        return ridesList.get(id);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RidesRVAdapter.CustomViewHolder holder, int position) {
-        String ride = ridesList.get(position);
-        holder.ride_name.setText(ride.toString());
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.history_holder, parent, false);
+        return new ViewHolder(view);
+    }
 
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        String ride = ridesList.get(position);
+        holder.rideName.setText(ride);
+    }
+
+    void setClickListener(ItemClickListener itemClickListener) {
+        this.mClickListener = itemClickListener;
     }
 
     @Override

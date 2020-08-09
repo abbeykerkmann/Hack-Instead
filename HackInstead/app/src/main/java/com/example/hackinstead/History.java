@@ -17,35 +17,19 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class History extends AppCompatActivity {
+public class History extends AppCompatActivity implements RidesRVAdapter.ItemClickListener{
 
     Button back;
 
     private RecyclerView recyclerView;
-    private RidesRVAdapter RidesRVAdapter;
+    private RidesRVAdapter ridesRVAdapter;
+
     List<String> listOfRides = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-
-        back = findViewById(R.id.back);
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                goToMainActivity();
-            }
-        });
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler);
-        RidesRVAdapter = new RidesRVAdapter(listOfRides);
-        RecyclerView.LayoutManager serviceLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(serviceLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(RidesRVAdapter);
 
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.open();
@@ -55,11 +39,28 @@ public class History extends AppCompatActivity {
         } else {
             while (data.moveToNext()){
                 listOfRides.add(data.getString(0));
-                RidesRVAdapter.notifyDataSetChanged();
                 Log.i("Ride", String.valueOf(listOfRides.size()));
             }
         }
         databaseAccess.close();
+
+        back = findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToMainActivity();
+            }
+        });
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ridesRVAdapter = new RidesRVAdapter(this, listOfRides);
+        ridesRVAdapter.setClickListener(this);
+        recyclerView.setAdapter(ridesRVAdapter);
+    }
+    public void onItemClick(View view, int position) {
+        Toast.makeText(this, "You clicked " + ridesRVAdapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 
     private void goToMainActivity() {
