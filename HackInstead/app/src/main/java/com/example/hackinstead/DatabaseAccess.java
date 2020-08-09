@@ -75,4 +75,10 @@ public class DatabaseAccess {
         Cursor data = db.rawQuery("SELECT * FROM SAVES", new String[]{});
         return data;
     }
+
+    public Cursor getHistoryFromName(String name){
+        open();
+        Cursor data = db.rawQuery("SELECT * FROM SAVES WHERE NAME = ?", new String[]{name});
+        return data;
+    }
 }

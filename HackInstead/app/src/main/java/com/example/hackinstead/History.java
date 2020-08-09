@@ -60,12 +60,28 @@ public class History extends AppCompatActivity implements RidesRVAdapter.ItemCli
         recyclerView.setAdapter(ridesRVAdapter);
     }
     public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + ridesRVAdapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+        String name = ridesRVAdapter.getItem(position);
+        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
+        databaseAccess.open();
+        Cursor data = databaseAccess.getHistoryFromName(name);
+        if(data.getCount() == 0) {
+            Toast.makeText(getApplicationContext(),"Record doesn't exist", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            while(data.moveToNext()) {
+                Enter_values.ride = new Rides(data.getString(1), Double.parseDouble(data.getString(2)), Double.parseDouble(data.getString(3)), Double.parseDouble(data.getString(4)), Boolean.parseBoolean(data.getString(5)), Boolean.getBoolean(data.getString(6)));
+                goToResults();
+            }
+        }
     }
 
     private void goToMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
 
+    private void goToResults() {
+        Intent intent = new Intent(this, Results.class);
+        startActivity(intent);
     }
 }
