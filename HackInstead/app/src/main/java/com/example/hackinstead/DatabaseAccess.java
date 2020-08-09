@@ -34,11 +34,6 @@ public class DatabaseAccess {
             this.db.close();
         }
     }
-    public Cursor getRides() {
-        open();
-        Cursor data = db.rawQuery("SELECT * FROM RIDES ORDER BY RIDE_NAME", new String[]{});
-        return data;
-    }
 
     public Cursor getRideNames() {
         open();
@@ -49,6 +44,12 @@ public class DatabaseAccess {
     public Cursor getRideValuesFromType(String type) {
         open();
         Cursor data = db.rawQuery("SELECT EXCITEMENT, INTENSITY, NAUSEA FROM RIDES WHERE RIDE_NAME = ?", new String[]{type});
+        return data;
+    }
+
+    public Cursor findExistingName(String name) {
+        open();
+        Cursor data = db.rawQuery("SELECT NAME FROM SAVES WHERE NAME = ?", new String[]{name});
         return data;
     }
 

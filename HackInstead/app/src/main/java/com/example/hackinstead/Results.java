@@ -89,13 +89,18 @@ public class Results extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                goToSaving();
             }
         });
     }
 
     private void goToMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToSaving() {
+        Intent intent = new Intent(this, Saving.class);
         startActivity(intent);
     }
 }
