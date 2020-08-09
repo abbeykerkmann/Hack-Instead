@@ -1,0 +1,4 @@
+Clone this repository and create an android studio project using the folder HackInstead.
+You should then be ableto access all of the code and run it on an Android device or using the AVD Manager.
+
+Ryan Matte and Abbey Kerkmann
