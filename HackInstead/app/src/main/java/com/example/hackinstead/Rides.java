@@ -42,4 +42,14 @@ public class Rides {
         this.sameRideType = sameRideType;
         this.entryFee = entryFee;
     }
+
+    public Rides(String name, String type, double excitement, double intensity, double nausea, boolean sameRideType, boolean entryFee){
+        this.name = name;
+        this.type = type;
+        this.excitement = excitement;
+        this.intensity = intensity;
+        this.nausea = nausea;
+        this.sameRideType = sameRideType;
+        this.entryFee = entryFee;
+    }
 }

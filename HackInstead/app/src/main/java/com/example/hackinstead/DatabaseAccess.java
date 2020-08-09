@@ -81,4 +81,14 @@ public class DatabaseAccess {
         Cursor data = db.rawQuery("SELECT * FROM SAVES WHERE NAME = ?", new String[]{name});
         return data;
     }
+
+    public boolean deleteRideData(String name) {
+        open();
+        long result = db.delete("SAVES", "NAME = ?", new String[]{name});
+        close();
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
 }

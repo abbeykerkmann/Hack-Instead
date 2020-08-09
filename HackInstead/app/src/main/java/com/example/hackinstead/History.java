@@ -69,8 +69,8 @@ public class History extends AppCompatActivity implements RidesRVAdapter.ItemCli
         }
         else {
             while(data.moveToNext()) {
-                Enter_values.ride = new Rides(data.getString(1), Double.parseDouble(data.getString(2)), Double.parseDouble(data.getString(3)), Double.parseDouble(data.getString(4)), Boolean.parseBoolean(data.getString(5)), Boolean.getBoolean(data.getString(6)));
-                goToResults();
+                Enter_values.ride = new Rides(data.getString(0), data.getString(1), Double.parseDouble(data.getString(2)), Double.parseDouble(data.getString(3)), Double.parseDouble(data.getString(4)), Boolean.parseBoolean(data.getString(5)), Boolean.getBoolean(data.getString(6)));
+                goToHistoryResults();
             }
         }
     }
@@ -80,8 +80,8 @@ public class History extends AppCompatActivity implements RidesRVAdapter.ItemCli
         startActivity(intent);
     }
 
-    private void goToResults() {
-        Intent intent = new Intent(this, Results.class);
+    private void goToHistoryResults() {
+        Intent intent = new Intent(this, HistoryResults.class);
         startActivity(intent);
     }
 }

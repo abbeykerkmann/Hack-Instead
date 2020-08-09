@@ -1,7 +1,5 @@
 package com.example.hackinstead;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,12 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Results extends AppCompatActivity {
+public class HistoryResults extends AppCompatActivity {
 
-    Button save,home;
+    Button delete, home;
     TextView[] entries = new TextView[10];
 
     List<Integer[]> listOfModifiers = new ArrayList<Integer[]>();
@@ -24,7 +24,7 @@ public class Results extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results);
+        setContentView(R.layout.activity_history_results);
 
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.open();
@@ -58,8 +58,8 @@ public class Results extends AppCompatActivity {
             Log.i("updatedRidePrices", String.valueOf(updatedRidePrices[i]));
         }
 
-        save = findViewById(R.id.button);
-        home = findViewById(R.id.button3);
+        delete = findViewById(R.id.delete_button);
+        home = findViewById(R.id.home_button);
 
         entries[0] = findViewById(R.id.entry0);
         entries[1] = findViewById(R.id.entry1);
@@ -84,10 +84,11 @@ public class Results extends AppCompatActivity {
             }
         });
 
-        save.setOnClickListener(new View.OnClickListener() {
+        delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToSaving();
+                removeFromDatabase();
+                goToMainActivity();
             }
         });
     }
@@ -97,8 +98,13 @@ public class Results extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void goToSaving() {
-        Intent intent = new Intent(this, Saving.class);
-        startActivity(intent);
+    private void removeFromDatabase() {
+        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
+        databaseAccess.open();
+        boolean deleted = databaseAccess.deleteRideData(Enter_values.ride.getName());
+        if(!deleted) {
+            Toast.makeText(getApplicationContext(), "Unable to delete from the database, please try again.", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 }
