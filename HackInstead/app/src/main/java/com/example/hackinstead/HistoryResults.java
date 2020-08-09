@@ -106,5 +106,6 @@ public class HistoryResults extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Unable to delete from the database, please try again.", Toast.LENGTH_SHORT).show();
             return;
         }
+        Toast.makeText(getApplicationContext(), "Deleted successfully!", Toast.LENGTH_SHORT).show();
     }
 }

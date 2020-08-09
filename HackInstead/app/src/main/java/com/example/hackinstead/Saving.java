@@ -63,5 +63,6 @@ public class Saving extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Unable to save to the database, please try again.", Toast.LENGTH_SHORT).show();
             return;
         }
+        Toast.makeText(getApplicationContext(), "Saved successfully!", Toast.LENGTH_SHORT).show();
     }
 }
