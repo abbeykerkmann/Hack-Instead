@@ -8,6 +8,7 @@
     tools:context="com.example.hackinstead.History">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="326dp"
         android:layout_height="504dp"
         android:layout_marginTop="16dp"

@@ -70,4 +70,9 @@ public class DatabaseAccess {
         else
             return true;
     }
+    public Cursor getHistory(){
+        open();
+        Cursor data = db.rawQuery("SELECT * FROM SAVES", new String[]{});
+        return data;
+    }
 }
